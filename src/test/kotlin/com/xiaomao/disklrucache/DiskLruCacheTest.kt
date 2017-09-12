@@ -6,6 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 import java.io.*
+import java.nio.file.Files
 import java.util.*
 
 class DiskLruCacheTest {
@@ -817,7 +818,7 @@ class DiskLruCacheTest {
         creator.commit()
         cache!!.flush()
 
-        DiskLruCache.renameTo(journalFile!!, journalBkpFile!!, true)
+        Files.copy(journalFile!!.toPath(), journalBkpFile!!.toPath())
 
         creator = cache!!.edit("k2")!!
         creator[0] = "F"
