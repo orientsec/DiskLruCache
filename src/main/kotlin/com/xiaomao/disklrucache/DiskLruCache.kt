@@ -163,6 +163,13 @@ class DiskLruCache private constructor(
 
         }
         redundantOpCount = lineCount - lruEntries.size
+
+        if (it.hasUnterminatedLine()) {
+            rebuildJournal()
+        } else {
+            journalWriter = BufferedWriter(OutputStreamWriter(
+                    FileOutputStream(journalFile, true), Charsets.US_ASCII))
+        }
     }
 
 
