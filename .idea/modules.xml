@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disklrucache.iml" filepath="$PROJECT_DIR$/.idea/modules/disklrucache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disklrucache_main.iml" filepath="$PROJECT_DIR$/.idea/modules/disklrucache_main.iml" group="disklrucache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/disklrucache_test.iml" filepath="$PROJECT_DIR$/.idea/modules/disklrucache_test.iml" group="disklrucache" />
+    </modules>
+  </component>
+</project>
