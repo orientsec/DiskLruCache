@@ -249,23 +249,26 @@ class DiskLruCache private constructor(
         }
 
         BufferedWriter(OutputStreamWriter(FileOutputStream(journalFileTmp), Charsets.US_ASCII)).use {
-            it.write(MAGIC)
-            it.write("\n")
-            it.write(VERSION_1)
-            it.write("\n")
-            it.write(Integer.toString(appVersion))
-            it.write("\n")
-            it.write(Integer.toString(valueCount))
-            it.write("\n")
-            it.write("\n")
+            with(it) {
+                write(MAGIC)
+                write("\n")
+                write(VERSION_1)
+                write("\n")
+                write(Integer.toString(appVersion))
+                write("\n")
+                write(Integer.toString(valueCount))
+                write("\n")
+                write("\n")
 
-            for (entry in lruEntries.values) {
-                if (entry.currentEditor != null) {
-                    it.write(DIRTY + ' ' + entry.key + '\n')
-                } else {
-                    it.write(CLEAN + ' ' + entry.key + entry.getLengths() + '\n')
+                for (entry in lruEntries.values) {
+                    if (entry.currentEditor != null) {
+                        write(DIRTY + ' ' + entry.key + '\n')
+                    } else {
+                        write(CLEAN + ' ' + entry.key + entry.getLengths() + '\n')
+                    }
                 }
             }
+
         }
 
         if (journalFile.exists()) {

@@ -148,7 +148,7 @@ internal class StrictLineReader
     }
 
     fun hasUnterminatedLine(): Boolean {
-        return end === -1
+        return end == -1
     }
 
     /**
